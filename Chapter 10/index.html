@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Customizing Bootstrap jQuery Plugins</title>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="../css/bootstrap.min.css" media="screen">
+</head>
+<body>
+	<style>
+		/* zoom */
+		.alert-zoom-in-out {
+		width: 300px;
+		margin: 0 auto;
+		font-size: 16px;
+		height: auto;
+		top: 20px;
+		color: rgb(12, 84, 96);
+		background-color: rgb(209, 236, 241);
+		}
+
+		.alert-zoom-in-out .close {
+		padding-right: 5px;
+		}
+
+		.high-contrast-on,
+		.high-contrast-on a,
+		.high-contrast-on i {
+		background-color: rgb(12, 84, 96);
+		color: rgb(209, 236, 241);
+		}
+	</style>
+
+	<div class="alert alert-info alert-zoom-in-out">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+		<a href="alert" class="close zoomIn" data-zoomIn="alert"
+		aria-label="zoom in">+</a>
+		<a href="alert" class="close zoomOut" data-zoomOut="alert"
+		aria-label="zoom out">-</a>
+		<a href="alert" class="close high-contrast" data-highContrast="alert"
+		aria-label="high contrast mode"><i class="fa fa-adjust"></i></a>
+		<p><strong>New Bootstrap Alert</strong></p>
+		<p>Zoom in and out, or enable contrast mode.</p>
+	</div>
+
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/bootstrap.bundle.min.js"></script>
+
+	<script>
+		(function ($) {
+		'use strict';
+
+		const Alert = $.fn.alert.Constructor;
+
+		//zoom in out alert
+		Alert.prototype.zoomIn = function(e) {
+			if (e) e.preventDefault();
+
+			const $this = $(this);
+
+			const $parent = $this.closest('.alert');
+
+			$this.trigger(e = $.Event('zoomIn.bs.alert'));
+
+			let $parentWidth = parseInt($parent.css('width'));
+			let $parentFontSize = parseInt($parent.css('font-size'));
+
+			if (e.isDefaultPrevented()) return;
+
+			$parent.css({
+			width: $parentWidth += 20,
+			fontSize: $parentFontSize += 2
+			});
+		};
+
+		Alert.prototype.zoomOut = function(e) {
+			if (e) e.preventDefault();
+
+			const $this = $(this);
+
+			const $parent = $this.closest('.alert');
+
+			$this.trigger(e = $.Event('zoomOut.bs.alert'));
+
+			let $parentWidth = parseInt($parent.css('width'));
+			let $parentFontSize = parseInt($parent.css('font-size'));
+
+			if (e.isDefaultPrevented()) return;
+
+			$parent.css({
+			width: $parentWidth -= 20,
+			fontSize: $parentFontSize -= 2
+			});
+		};
+
+		Alert.prototype.highContrast = function(e) {
+			if (e) e.preventDefault();
+
+			const $this = $(this);
+
+			const $parent = $this.closest('.alert');
+
+			$this.trigger(e = $.Event('highContrast.bs.alert'));
+
+			if (e.isDefaultPrevented()) return;
+
+			$parent.toggleClass('high-contrast-on');
+		};
+
+		// zoom in out
+		$(document).on('click.bs.alert.data-api', '[data-zoomIn="alert"]', Alert.prototype.zoomIn);
+
+		$(document).on('click.bs.alert.data-api', '[data-zoomOut="alert"]', Alert.prototype.zoomOut);
+
+		$(document).on('click.bs.alert.data-api', '[data-highContrast="alert"]', Alert.prototype.highContrast);
+
+		})(jQuery);
+	</script>
+</body>
+</html>

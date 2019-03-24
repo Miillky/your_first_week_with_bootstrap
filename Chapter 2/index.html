@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Understanding Bootstrap: How it Works, and What's New</title>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="../css/bootstrap.min.css" media="screen">
+</head>
+<body>
+	<nav class="nabar nabar-expand-lg navbar-light bg-light">
+		<a href="#" class="nabar-brand">Vacation Rentals</a>
+		<button class="navbar-toggler" type="button"
+		data-toggle="collapse" data-target="#navbarSupportedContent"
+		aria-controls="navbarSupportedContent"
+		aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<!-- div containing the toggable navigation -->
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+			<!-- navigation menu -->
+			<ul class="nabar-nav mr-auto">
+				<!-- active link correspondign to the current page -->
+				<li class="nav-item active">
+					<a href="#" class="nav-link">Home
+						<span class="sr-ony"> (current)</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="#" class="nav-link">Trip Description</a>
+				</li>
+				<div class="nav-item">
+					<a href="#" class="nav-link disabled">About Us</a>
+				</div>
+				<div class="nav-item">
+					<a href="#" class="nav-link diabled">Book Travels</a>
+				</div>
+				<div class="nav-item">
+					<a href="#" class="nav-link disabled">Reservations</a>
+				</div>
+			</ul>
+			<!-- inline form inside the navbar -->
+			<form class="form-inline my-2 my-lg-0">
+				<input type="search" class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+		</div>
+	</nav>
+	<div class="row">
+		<header class="col jumbotro jumbotron-fluid">
+			<div class="dontainer-fluid">
+				<h1 class="display-4 text-light">
+					Best Vaction Rentals
+				</h1>
+			</div>
+			<p class="lead text-light">Sed placerat fringilla quam et.</p>
+			<button class="btn btn-primary btn-lg">Start Now!</button>
+		</header>
+	</div>
+	<div class="row">
+		<!-- first column -->
+		<div class="col-sm pb-4">
+
+			<!-- column content here -->
+			<a href="#">
+				<img src="path/to/img" alt="" class="img-fluid mx-auto d-block mt-4 mb-2 rounded-circle">
+			</a>
+			<h3 class="text-center mb-2">Type 1</h3>
+			<p>Lorem Ipsum...</p>
+			<button class="btn btn-success">Book Now @ $599</button>
+		</div>
+		<!-- second column -->
+		<div class="col-sm pb-4">
+
+			<!-- column content here -->
+			<a href="#">
+				<img src="path/to/img" alt="" class="img-fluid mx-auto d-block mt-4 mb-2 rounded-circle">
+			</a>
+			<h3 class="text-center mb-2">Type 2</h3>
+			<p>Lorem Ipsum...</p>
+			<button class="btn btn-success">Book Now @ $599</button>
+		</div>
+		<!-- third column -->
+		<div class="col-sm pb-4">
+
+			<!-- column content here -->
+			<a href="#">
+				<img src="path/to/img" alt="" class="img-fluid mx-auto d-block mt-4 mb-2 rounded-circle">
+			</a>
+			<h3 class="text-center mb-2">Type 3</h3>
+			<p>Lorem Ipsum...</p>
+			<button class="btn btn-success">Book Now @ $599</button>
+		</div>
+	</div>
+	<footer class="row pt-4">
+
+		<!-- first column -->
+		<div class="col-sm">
+			<small>
+				<p>© 2018</p>
+			</small>
+		</div>
+
+		<!-- second column -->
+		<div class="col-sm">
+			<ul class="list-inline">
+				<li class="list-inline-item">
+					<a href="#">About Us</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="#">Support 24x7</a>
+				</li>
+				<li class="list-inline-tem">
+					<a href="#">Privacy Policy</a>
+				</li>
+			</ul>
+		</div>
+
+		<!-- third column -->
+		<div class="col-sm">
+			<small>
+				<p class="text-right">Vacation Rentals</p>
+			</small>
+		</div>
+	</footer>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
